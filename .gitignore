@@ -1,5 +1,11 @@
 .env
+.env.*
+!.env.example
+
 node_modules
+node_modules/
+jspm_packages/
+
 # Logs
 logs
 *.log
@@ -9,10 +15,28 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
+# Build outputs
 dist
 dist-ssr
 *.local
+coverage
+.nyc_output
+
+# Tool caches
+.cache
+.parcel-cache
+.eslintcache
+.stylelintcache
+.npm
+*.tsbuildinfo
+
+# Runtime / misc
+pids
+*.pid
+*.seed
+*.pid.lock
+.node_repl_history
+*.tgz
 
 # Editor directories and files
 .vscode/*
