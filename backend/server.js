@@ -3,6 +3,7 @@ const app=express();
 const cors=require('cors');
 const connectDB=require('./config/dbConnection');
 const uploadRoutes=require('./routes/uploadRoutes');
+const PORT = process.env.PORT || 5000;
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cors());
@@ -18,6 +19,6 @@ app.get('/health',(req,res)=>{
 
 
 
-app.listen(5000,()=>{
-	console.log(`SERVER is running on PORT ${5000}`);
+app.listen(PORT,()=>{
+	console.log(`SERVER is running on PORT ${PORT}`);
 })
