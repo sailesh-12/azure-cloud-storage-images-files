@@ -1,0 +1,49 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --sans: 'Inter', system-ui, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #f0f4ff;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+/* Upload zone pulse animation */
+@keyframes pulse-border {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.drag-active {
+  animation: pulse-border 1.2s ease-in-out infinite;
+}
+
+/* Smooth card hover lift */
+.file-card {
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.file-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(99, 102, 241, 0.18);
+}
+
