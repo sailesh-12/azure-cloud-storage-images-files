@@ -29,7 +29,7 @@ import {
 } from "react-icons/fi";
 import { toaster } from "./ui/toaster";
 
-const API_BASE = "http://localhost:5000/api/files";
+const API_BASE = "https://backend-images-upload-a3cze2dpf8endmg8.centralindia-01.azurewebsites.net/api/files";
 
 const formatSize = (bytes) => {
   if (bytes < 1024) return `${bytes} B`;

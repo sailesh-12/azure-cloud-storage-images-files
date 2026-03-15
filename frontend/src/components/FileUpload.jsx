@@ -3,7 +3,7 @@ import { Box, Button, HStack, Icon, Spinner, Text, VStack } from "@chakra-ui/rea
 import { FiUploadCloud, FiFile, FiX, FiCheckCircle } from "react-icons/fi";
 import { toaster } from "./ui/toaster";
 
-const API_BASE = "http://localhost:5000/api/files";
+const API_BASE = "https://backend-images-upload-a3cze2dpf8endmg8.centralindia-01.azurewebsites.net/api/files";
 
 export default function FileUpload({ onUploadSuccess }) {
   const inputRef = useRef(null);
