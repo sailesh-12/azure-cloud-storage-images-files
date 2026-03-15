@@ -17,8 +17,16 @@ app.get('/health',(req,res)=>{
 	});
 });
 
+const startServer = async () => {
+	try {
+		await connectDB();
+		app.listen(PORT,()=>{
+			console.log(`SERVER is running on PORT ${PORT}`);
+		});
+	} catch (error) {
+		console.error('Failed to start server:', error);
+		process.exit(1);
+	}
+};
 
-
-app.listen(PORT,()=>{
-	console.log(`SERVER is running on PORT ${PORT}`);
-})
+startServer();
