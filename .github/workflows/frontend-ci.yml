@@ -47,12 +47,22 @@ jobs:
           path: frontend/dist
 
   deploy-frontend:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main' && secrets.AZURE_FRONTEND_WEBAPP_NAME != '' && secrets.AZURE_FRONTEND_WEBAPP_PUBLISH_PROFILE != ''
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     needs: build-frontend
     environment:
       name: production
     steps:
+      - name: Validate required secrets
+        env:
+          AZURE_FRONTEND_WEBAPP_NAME: ${{ secrets.AZURE_FRONTEND_WEBAPP_NAME }}
+          AZURE_FRONTEND_WEBAPP_PUBLISH_PROFILE: ${{ secrets.AZURE_FRONTEND_WEBAPP_PUBLISH_PROFILE }}
+        run: |
+          if [ -z "$AZURE_FRONTEND_WEBAPP_NAME" ] || [ -z "$AZURE_FRONTEND_WEBAPP_PUBLISH_PROFILE" ]; then
+            echo "Missing required secrets: AZURE_FRONTEND_WEBAPP_NAME and/or AZURE_FRONTEND_WEBAPP_PUBLISH_PROFILE"
+            exit 1
+          fi
+
       - name: Show target app
         run: echo "Deploying frontend to ${{ secrets.AZURE_FRONTEND_WEBAPP_NAME }}"
 
