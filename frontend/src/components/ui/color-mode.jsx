@@ -12,6 +12,7 @@ export function ColorModeProvider(props) {
   )
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function useColorMode() {
   const { resolvedTheme, setTheme, forcedTheme } = useTheme()
   const colorMode = forcedTheme || resolvedTheme
@@ -25,6 +26,7 @@ export function useColorMode() {
   }
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function useColorModeValue(light, dark) {
   const { colorMode } = useColorMode()
   return colorMode === 'dark' ? dark : light
