@@ -9,8 +9,6 @@ app.use(express.urlencoded({extended:true}));
 app.use(cors());
 
 app.use('/api/files',uploadRoutes);
-// Connect to MongoDB
-connectDB();
 app.get('/health',(req,res)=>{
 	res.status(200).json({
 		message:"Json"
